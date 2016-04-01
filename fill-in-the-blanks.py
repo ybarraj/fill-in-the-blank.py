@@ -9,11 +9,13 @@ Payton Manning is famous for his ablity to play ___2___. And even though he was 
 he remains one of the best quaterbacks in the ___3___. The NFL barely even fined him for his actions. It basically was
 a slap on the ___4___ .'''
 
+#I got this paragraph from https://wiki.python.org/moin/
 mediumParagraph = '''___1___ combines remarkable power with very clear syntax. It has ___2___, 
 classes, exceptions, very high level ___3___ data types, and ___3___ typing. There are interfaces 
 to many system calls and libraries, as well as to various windowing systems. New built-in ___2___ 
 are easily written in C or C++ (or other ___4___, depending on the chosen implementation).'''
 
+#I got this paragraph from https://answers.yahoo.com/question/index?qid=20090310220140AAy8ZFx
 hardParagraph = '''Perhaps the most misleading aspect of a dinosaur's ___1___ figure may simply 
 prove to compromise a reality of ___2___ creatures that demolish and create unique structures thus 
 reuniting and additionally eliminating the openly incredibly rescinding factor which could ___3___ 
