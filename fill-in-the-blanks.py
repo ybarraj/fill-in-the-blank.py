@@ -30,198 +30,243 @@ mediumAnswers = ["Python", "modules", "dynamic", "languages"]
 
 hardAnswers = ["prehistoric", "inhumane", "possibly", "quantum"]
 
-level = ()
-answers = ()
-guesses = ()
 
-def playGame():
-	"""This takes a user from choosing which level to play, to choosing how many wrong 
-	answers they can go through, to entering all of their guesses and be returned with 
-	the results of their guesses. It's not pretty but it gets the job done :) """
+blanks = ["___1___", "___2___", "___3___", "___4___"]
+
+
+# zipedlist = zip(easyAnswers, blanks)
+# print zipedlist
+
+
+def level_select():
 	user_input = raw_input("""Please select a game difficulty by typing it in!
 Possible choices include easy, medium and hard.""" + """ 
 """)
-	if user_input == "easy":
-		print "You chose easy!"
-		level = easyParagraph
-		answer = easyAnswers
-		n_of_guesses = raw_input("""How many total wrong guesses would you like to have access to? Please enter a possitive integer number: """)
-		while n_of_guesses > 0:
-			print "The current paragraph reads as such:"
-			print level 
-			firstGuess = raw_input("What should be substituted in for ___1___?")
-			if firstGuess == easyAnswers[0]:
-				while n_of_guesses > 0:
-					print "Congrats! That's correct."
-					print "The current paragraph reads as such:"
-					level = level.replace("___1___", easyAnswers[0])
-					print level
-					secondGuess = raw_input("what should be substituted in for ___2___?")
-					if secondGuess == easyAnswers[1]:
-						while n_of_guesses > 0:
-							print "Congrats! That's correct."
-							print "The current paragraph reads as such:"
-							level = level.replace("___2___", easyAnswers[1])
-							print level
-							thirdGuess = raw_input("what should be substituted in for ___3___?")
-							if thirdGuess == easyAnswers[2]:
-								while n_of_guesses > 0:
-									print "Congrats! That's correct."
-									print "The current paragraph reads as such:"
-									level = level.replace("___3___", easyAnswers[2])
-									print level
-									fourthGuess = raw_input("what should be substituted in for ___4___?")
-									if fourthGuess == easyAnswers[3]:
-										while n_of_guesses > 0:
-											print "Congrats! That's correct."
-											level = level.replace("___4___", easyAnswers[3])
-											print level
-											return "You won!"
-									else: 
-										n_of_guesses = int(n_of_guesses)-1
-										if n_of_guesses == 0:
-											return "Sorry, that's all your guesses! Game Over."
-										print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
-							else: 
-								n_of_guesses = int(n_of_guesses)-1
-								if n_of_guesses == 0:
-									return "Sorry, that's all your guesses! Game Over."
-								print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
-					else: 
-						n_of_guesses = int(n_of_guesses)-1
-						if n_of_guesses == 0:
-							return "Sorry, that's all your guesses! Game Over."
-						print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
-			else: 
-				n_of_guesses = int(n_of_guesses)-1
-				if n_of_guesses == 0:
-					return "Sorry, that's all your guesses! Game Over."
-				print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
+	dificulty = user_input
+# 	while user_input != "easy" or "medium" or "hard":
+# 		user_input = raw_input("""Please choose a valid dificulty level.
+# Possible choices include easy, medium and hard.""" + """ 
+# """)
+	if dificulty == "easy":
+		return easyParagraph, easyAnswers, blanks
+	elif dificulty == "medium":
+		return mediumParagraph, mediumAnswers, blanks
+	elif dificulty == "hard":
+		return hardParagraph, hardAnswers, blanks
 
-
-	elif user_input == "medium":
-		print "You chose medium!"
-		level = mediumParagraph
-		answer = mediumAnswers
-		n_of_guesses = raw_input("""How many total wrong guesses would you like to have access to? Please enter a possitive integer number: """)
-		while n_of_guesses > 0:
-			print "The current paragraph reads as such:"
-			print level 
-			firstGuess = raw_input("What should be substituted in for ___1___?")
-			if firstGuess == mediumAnswers[0]:
-				while n_of_guesses > 0:
-					print "Congrats! That's correct."
-					print "The current paragraph reads as such:"
-					level = level.replace("___1___", mediumAnswers[0])
-					print level
-					secondGuess = raw_input("what should be substituted in for ___2___?")
-					if secondGuess == mediumAnswers[1]:
-						while n_of_guesses > 0:
-							print "Congrats! That's correct."
-							print "The current paragraph reads as such:"
-							level = level.replace("___2___", mediumAnswers[1])
-							print level
-							thirdGuess = raw_input("what should be substituted in for ___3___?")
-							if thirdGuess == mediumAnswers[2]:
-								while n_of_guesses > 0:
-									print "Congrats! That's correct."
-									print "The current paragraph reads as such:"
-									level = level.replace("___3___", mediumAnswers[2])
-									print level
-									fourthGuess = raw_input("what should be substituted in for ___4___?")
-									if fourthGuess == mediumAnswers[3]:
-										while n_of_guesses > 0:
-											print "Congrats! That's correct."
-											level = level.replace("___4___", mediumAnswers[3])
-											print level
-											return "You won!"
-									else: 
-										n_of_guesses = int(n_of_guesses)-1
-										if n_of_guesses == 0:
-											return "Sorry, that's all your guesses! Game Over."
-										print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
-							else: 
-								n_of_guesses = int(n_of_guesses)-1
-								if n_of_guesses == 0:
-									return "Sorry, that's all your guesses! Game Over."
-								print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
-					else: 
-						n_of_guesses = int(n_of_guesses)-1
-						if n_of_guesses == 0:
-							return "Sorry, that's all your guesses! Game Over."
-						print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
-			else: 
-				n_of_guesses = int(n_of_guesses)-1
-				if n_of_guesses == 0:
-					return "Sorry, that's all your guesses! Game Over."
-				print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
-
-	elif user_input == "hard": 
-		print "You chose hard!"
-		level = hardParagraph
-		answer = hardAnswers
-		n_of_guesses = raw_input("""How many total wrong guesses would you like to have access to? Please enter a possitive integer number: """)
-		while n_of_guesses > 0:
-			print "The current paragraph reads as such:"
-			print level 
-			firstGuess = raw_input("What should be substituted in for ___1___?")
-			if firstGuess == hardAnswers[0]:
-				while n_of_guesses > 0:
-					print "Congrats! That's correct."
-					print "The current paragraph reads as such:"
-					level = level.replace("___1___", hardAnswers[0])
-					print level
-					secondGuess = raw_input("what should be substituted in for ___2___?")
-					if secondGuess == hardAnswers[1]:
-						while n_of_guesses > 0:
-							print "Congrats! That's correct."
-							print "The current paragraph reads as such:"
-							level = level.replace("___2___", hardAnswers[1])
-							print level
-							thirdGuess = raw_input("what should be substituted in for ___3___?")
-							if thirdGuess == hardAnswers[2]:
-								while n_of_guesses > 0:
-									print "Congrats! That's correct."
-									print "The current paragraph reads as such:"
-									level = level.replace("___3___", hardAnswers[2])
-									print level
-									fourthGuess = raw_input("what should be substituted in for ___4___?")
-									if fourthGuess == hardAnswers[3]:
-										while n_of_guesses > 0:
-											print "Congrats! That's correct."
-											level = level.replace("___4___", hardAnswers[3])
-											print level
-											return "You won!"
-									else: 
-										n_of_guesses = int(n_of_guesses)-1
-										if n_of_guesses == 0:
-											return "Sorry, that's all your guesses! Game Over."
-										print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
-							else: 
-								n_of_guesses = int(n_of_guesses)-1
-								if n_of_guesses == 0:
-									return "Sorry, that's all your guesses! Game Over."
-								print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
-					else: 
-						n_of_guesses = int(n_of_guesses)-1
-						if n_of_guesses == 0:
-							return "Sorry, that's all your guesses! Game Over."
-						print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
-			else: 
-				n_of_guesses = int(n_of_guesses)-1
-				if n_of_guesses == 0:
-					return "Sorry, that's all your guesses! Game Over."
-				print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
-
-	else: 
-		print "User input invalid."
-    	return None
+def quiz(quiz_string, quiz_answers_list, blanks_list):
+	print quiz_string
+	for answer, question in zip(quiz_answers_list, blanks_list):
+		user_answer = raw_input("What should be substituted in for " + question + "?")
+		while user_answer != answer:
+			new_user_answer = raw_input("""Sorry that wasn't the right answer. 
+What should be substituted in for """ + question + "?")
+		quiz_string = quiz_string.replace(question, answer)
+		print quiz_string
+	print "That's correct!"
 
 
 
 
 
+# print level_select()
+print quiz(easyParagraph, easyAnswers, blanks)
 
-print playGame()
+
+
+
+level = ()
+# answers = ()
+# guesses = ()
+
+# def playGame():
+# 	"""This takes a user from choosing which level to play, to choosing how many wrong 
+# 	answers they can go through, to entering all of their guesses and be returned with 
+# 	the results of their guesses. It's not pretty but it gets the job done :) """
+# 	user_input = raw_input("""Please select a game difficulty by typing it in!
+# Possible choices include easy, medium and hard.""" + """ 
+# """)
+# 	if user_input == "easy":
+# 		print "You chose easy!"
+# 		level = easyParagraph
+# 		answer = easyAnswers
+# 		n_of_guesses = raw_input("""How many total wrong guesses would you like to have access to? Please enter a possitive integer number: """)
+# 		while n_of_guesses > 0:
+# 			print "The current paragraph reads as such:"
+# 			print level 
+# 			firstGuess = raw_input("What should be substituted in for ___1___?")
+# 			if firstGuess == easyAnswers[0]:
+# 				while n_of_guesses > 0:
+# 					print "Congrats! That's correct."
+# 					print "The current paragraph reads as such:"
+# 					level = level.replace("___1___", easyAnswers[0])
+# 					print level
+# 					secondGuess = raw_input("what should be substituted in for ___2___?")
+# 					if secondGuess == easyAnswers[1]:
+# 						while n_of_guesses > 0:
+# 							print "Congrats! That's correct."
+# 							print "The current paragraph reads as such:"
+# 							level = level.replace("___2___", easyAnswers[1])
+# 							print level
+# 							thirdGuess = raw_input("what should be substituted in for ___3___?")
+# 							if thirdGuess == easyAnswers[2]:
+# 								while n_of_guesses > 0:
+# 									print "Congrats! That's correct."
+# 									print "The current paragraph reads as such:"
+# 									level = level.replace("___3___", easyAnswers[2])
+# 									print level
+# 									fourthGuess = raw_input("what should be substituted in for ___4___?")
+# 									if fourthGuess == easyAnswers[3]:
+# 										while n_of_guesses > 0:
+# 											print "Congrats! That's correct."
+# 											level = level.replace("___4___", easyAnswers[3])
+# 											print level
+# 											return "You won!"
+# 									else: 
+# 										n_of_guesses = int(n_of_guesses)-1
+# 										if n_of_guesses == 0:
+# 											return "Sorry, that's all your guesses! Game Over."
+# 										print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
+# 							else: 
+# 								n_of_guesses = int(n_of_guesses)-1
+# 								if n_of_guesses == 0:
+# 									return "Sorry, that's all your guesses! Game Over."
+# 								print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
+# 					else: 
+# 						n_of_guesses = int(n_of_guesses)-1
+# 						if n_of_guesses == 0:
+# 							return "Sorry, that's all your guesses! Game Over."
+# 						print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
+# 			else: 
+# 				n_of_guesses = int(n_of_guesses)-1
+# 				if n_of_guesses == 0:
+# 					return "Sorry, that's all your guesses! Game Over."
+# 				print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
+
+
+# 	elif user_input == "medium":
+# 		print "You chose medium!"
+# 		level = mediumParagraph
+# 		answer = mediumAnswers
+# 		n_of_guesses = raw_input("""How many total wrong guesses would you like to have access to? Please enter a possitive integer number: """)
+# 		while n_of_guesses > 0:
+# 			print "The current paragraph reads as such:"
+# 			print level 
+# 			firstGuess = raw_input("What should be substituted in for ___1___?")
+# 			if firstGuess == mediumAnswers[0]:
+# 				while n_of_guesses > 0:
+# 					print "Congrats! That's correct."
+# 					print "The current paragraph reads as such:"
+# 					level = level.replace("___1___", mediumAnswers[0])
+# 					print level
+# 					secondGuess = raw_input("what should be substituted in for ___2___?")
+# 					if secondGuess == mediumAnswers[1]:
+# 						while n_of_guesses > 0:
+# 							print "Congrats! That's correct."
+# 							print "The current paragraph reads as such:"
+# 							level = level.replace("___2___", mediumAnswers[1])
+# 							print level
+# 							thirdGuess = raw_input("what should be substituted in for ___3___?")
+# 							if thirdGuess == mediumAnswers[2]:
+# 								while n_of_guesses > 0:
+# 									print "Congrats! That's correct."
+# 									print "The current paragraph reads as such:"
+# 									level = level.replace("___3___", mediumAnswers[2])
+# 									print level
+# 									fourthGuess = raw_input("what should be substituted in for ___4___?")
+# 									if fourthGuess == mediumAnswers[3]:
+# 										while n_of_guesses > 0:
+# 											print "Congrats! That's correct."
+# 											level = level.replace("___4___", mediumAnswers[3])
+# 											print level
+# 											return "You won!"
+# 									else: 
+# 										n_of_guesses = int(n_of_guesses)-1
+# 										if n_of_guesses == 0:
+# 											return "Sorry, that's all your guesses! Game Over."
+# 										print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
+# 							else: 
+# 								n_of_guesses = int(n_of_guesses)-1
+# 								if n_of_guesses == 0:
+# 									return "Sorry, that's all your guesses! Game Over."
+# 								print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
+# 					else: 
+# 						n_of_guesses = int(n_of_guesses)-1
+# 						if n_of_guesses == 0:
+# 							return "Sorry, that's all your guesses! Game Over."
+# 						print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
+# 			else: 
+# 				n_of_guesses = int(n_of_guesses)-1
+# 				if n_of_guesses == 0:
+# 					return "Sorry, that's all your guesses! Game Over."
+# 				print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
+
+# 	elif user_input == "hard": 
+# 		print "You chose hard!"
+# 		level = hardParagraph
+# 		answer = hardAnswers
+# 		n_of_guesses = raw_input("""How many total wrong guesses would you like to have access to? Please enter a possitive integer number: """)
+# 		while n_of_guesses > 0:
+# 			print "The current paragraph reads as such:"
+# 			print level 
+# 			firstGuess = raw_input("What should be substituted in for ___1___?")
+# 			if firstGuess == hardAnswers[0]:
+# 				while n_of_guesses > 0:
+# 					print "Congrats! That's correct."
+# 					print "The current paragraph reads as such:"
+# 					level = level.replace("___1___", hardAnswers[0])
+# 					print level
+# 					secondGuess = raw_input("what should be substituted in for ___2___?")
+# 					if secondGuess == hardAnswers[1]:
+# 						while n_of_guesses > 0:
+# 							print "Congrats! That's correct."
+# 							print "The current paragraph reads as such:"
+# 							level = level.replace("___2___", hardAnswers[1])
+# 							print level
+# 							thirdGuess = raw_input("what should be substituted in for ___3___?")
+# 							if thirdGuess == hardAnswers[2]:
+# 								while n_of_guesses > 0:
+# 									print "Congrats! That's correct."
+# 									print "The current paragraph reads as such:"
+# 									level = level.replace("___3___", hardAnswers[2])
+# 									print level
+# 									fourthGuess = raw_input("what should be substituted in for ___4___?")
+# 									if fourthGuess == hardAnswers[3]:
+# 										while n_of_guesses > 0:
+# 											print "Congrats! That's correct."
+# 											level = level.replace("___4___", hardAnswers[3])
+# 											print level
+# 											return "You won!"
+# 									else: 
+# 										n_of_guesses = int(n_of_guesses)-1
+# 										if n_of_guesses == 0:
+# 											return "Sorry, that's all your guesses! Game Over."
+# 										print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
+# 							else: 
+# 								n_of_guesses = int(n_of_guesses)-1
+# 								if n_of_guesses == 0:
+# 									return "Sorry, that's all your guesses! Game Over."
+# 								print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
+# 					else: 
+# 						n_of_guesses = int(n_of_guesses)-1
+# 						if n_of_guesses == 0:
+# 							return "Sorry, that's all your guesses! Game Over."
+# 						print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
+# 			else: 
+# 				n_of_guesses = int(n_of_guesses)-1
+# 				if n_of_guesses == 0:
+# 					return "Sorry, that's all your guesses! Game Over."
+# 				print "That isn't the correct answer!  Let's try again; you have " + str(n_of_guesses) + " trys left!"
+
+# 	else: 
+# 		print "User input invalid."
+#     	return None
+
+
+
+
+
+
+# print playGame()
 
 
